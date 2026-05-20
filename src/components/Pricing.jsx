@@ -4,7 +4,7 @@ const plans = [
     price: '$800',
     type: 'one-time',
     features: ['Up to 6 pages', 'Custom design', 'Mobile responsive', 'Contact form', 'SEO optimized'],
-    link: 'REPLACE_WEBSITE_STRIPE_LINK',
+    link: '#contact',
     featured: false,
   },
   {
@@ -12,7 +12,7 @@ const plans = [
     price: '$2,000',
     type: 'one-time',
     features: ['Up to 6 pages + shop', 'Custom design', 'Mobile responsive', 'Online payments', 'Subscriptions', 'Apple & Google Pay', 'Email receipts'],
-    link: 'REPLACE_ECOMMERCE_STRIPE_LINK',
+    link: '#contact',
     featured: true,
   },
   {
@@ -20,7 +20,7 @@ const plans = [
     price: '$3,500',
     type: 'starting at',
     features: ['Custom functionality', 'Database integration', 'User authentication', 'Admin dashboard', 'API integrations'],
-    link: 'REPLACE_APP_STRIPE_LINK',
+    link: '#contact',
     featured: false,
   },
   {
@@ -28,7 +28,7 @@ const plans = [
     price: '$5,500',
     type: 'starting at',
     features: ['Website + store + app in one', 'User accounts & order history', 'Admin dashboard', 'Online payments & subscriptions', 'API integrations'],
-    link: 'REPLACE_PLATFORM_STRIPE_LINK',
+    link: '#contact',
     featured: false,
   },
 ]
@@ -37,10 +37,10 @@ const maintenance = {
   price: '$100',
   type: 'per month',
   features: ['Bug fixes', 'Feature updates', 'Priority support', 'Uptime monitoring'],
-  link: 'REPLACE_MAINTENANCE_STRIPE_LINK',
+  link: '#contact',
 }
 
-export default function Pricing() {
+export default function Pricing({ onSelectPlan }) {
   return (
     <section className="section" id="pricing">
       <div className="container">
@@ -56,9 +56,12 @@ export default function Pricing() {
               <ul className="pricing-features">
                 {p.features.map((f) => <li key={f}>{f}</li>)}
               </ul>
-              <a href={p.link} className={`btn ${p.featured ? 'btn-primary' : 'btn-outline'}`} target="_blank" rel="noreferrer">
+              <button
+                className={`btn ${p.featured ? 'btn-primary' : 'btn-outline'}`}
+                onClick={() => onSelectPlan(`${p.name} — ${p.price} (${p.type})`)}
+              >
                 Get Started
-              </a>
+              </button>
             </div>
           ))}
 
@@ -70,9 +73,12 @@ export default function Pricing() {
             <ul className="pricing-features">
               {maintenance.features.map((f) => <li key={f}>{f}</li>)}
             </ul>
-            <a href={maintenance.link} className="btn btn-outline" target="_blank" rel="noreferrer">
+            <button
+              className="btn btn-outline"
+              onClick={() => onSelectPlan(`Maintenance — ${maintenance.price} (${maintenance.type})`)}
+            >
               Subscribe
-            </a>
+            </button>
           </div>
         </div>
 

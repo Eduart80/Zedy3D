@@ -16,6 +16,7 @@ export default function Navbar() {
           <li><a href="#skills"   onClick={close}>Skills</a></li>
           <li><a href="#projects" onClick={close}>Projects</a></li>
           <li><a href="#services" onClick={close}>Services</a></li>
+          <li><a href="#process"  onClick={close}>Process</a></li>
           <li><a href="#pricing"  onClick={close}>Pricing</a></li>
           <li><a href="#contact"  onClick={close}>Contact</a></li>
         </ul>
