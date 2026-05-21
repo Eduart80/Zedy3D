@@ -34,7 +34,7 @@ const plans = [
 ]
 
 const maintenance = {
-  price: '$100',
+  price: '$150',
   type: 'per month',
   features: ['Bug fixes', 'Feature updates', 'Priority support', 'Uptime monitoring'],
   link: '#contact',
